@@ -14,8 +14,6 @@ TALOS 팀의 프로그래머는 자신의 경험을 바탕으로 해당 레포�
 
 ---
 
-<br>
-
 # Rule
 로봇 컨트롤러 개발은 혼자 하는 것이 아니다. 또한, 효과적인 코드를 작성하기 위해서는 프로그래밍을 할 때 반드시 지켜야 할 몇 가지 규칙이 존재한다.
 
@@ -33,8 +31,6 @@ TALOS 팀의 프로그래머는 자신의 경험을 바탕으로 해당 레포�
 
 ---
 
-<br>
-
 # RC Programming Essential Course
 이 코스는 JAVA 기초 및 FTC SDK의 기본적인 내용을 학습하고, 프로그래머가 알아야 할 각종 로봇 개발 관련 기초 내용을 학습을 위한 코스이다.
 KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코스를 반드시 이수해야 TALOS팀의 프로그래머로 활동할 수 있다.     
@@ -45,8 +41,6 @@ KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코
 
 ---
 
-<br>
-
 # RC Programming Advanced Course
 이 코스는 Roadrunner, FTC Dashboard, Limelight Vision 등 TALOS 팀의 프로그래머가 반드시 알아야 할 고급 기술들을 다룬다.
 이 내용을 바탕으로 우리는 높은 수준의 로봇 컨트롤 시스템을 제작할 수 있으며, Autonomous Period와 Driver Controlled Period 모두에서 높은 퍼포먼스를 구현할 수 있다.
@@ -56,8 +50,6 @@ KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코
 <br>
 
 ---
-
-<br>
 
 # Tips
 이 항목에 해당되는 내용들은 Robot Controller 개발에 유용하게 활용될 수 있는 각종 고급 지식들과 팁들을 다룬다. 
@@ -95,9 +87,6 @@ KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코
 
 ---
 
-<br>
-
-# Dictionary
 이 문서는 Robot Controller를 제작할 때 나오는 각종 FTC 및 개발 용어를 설명한다.
 
 [Dictionary ➜]()
