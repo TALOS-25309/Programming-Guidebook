@@ -1,0 +1,5 @@
+# Site Settings
+locale: ko-KR 
+title: Programming Guidebook
+description: TALOS & KROS Programming Guidebook
+theme: jekyll-theme-cayman
