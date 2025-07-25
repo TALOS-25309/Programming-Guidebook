@@ -20,7 +20,7 @@ TALOS 팀의 프로그래머는 자신의 경험을 바탕으로 해당 레포�
 ## Programming Guidelines
 이 가이드라인은 Robot Controller 개발시에 반드시 명심해야할 규칙들이다.     
 
-[Programming Guidelines ➜]()
+[Programming Guidelines ➜](./rule/programming-guidelines)
 
 ## TALOS Coding Style Guide
 이 규칙은 TALOS 팀의 공통된 코딩 스타일을 규정한다. 이를 통해 코드 가독성을 향상시키고, 코드를 명확하게 하며, 예상치 못한 실수를 방지할 수 있다.     
