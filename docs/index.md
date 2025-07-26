@@ -15,17 +15,23 @@ TALOS 팀의 프로그래머는 자신의 경험을 바탕으로 해당 레포�
 ---
 
 # Rule
-로봇 컨트롤러 개발은 혼자 하는 것이 아니다. 또한, 효과적인 코드를 작성하기 위해서는 프로그래밍을 할 때 반드시 지켜야 할 몇 가지 규칙이 존재한다.
+로봇 컨트롤러 개발은 혼자 하는 것이 아니다. 여러 사람들이 함께 개발하는 만큼 효과적인 코드를 작성하기 위해서는 공통된 규칙에 따라 코드를 작성해야 한다.
+또한, 이 규칙들은 버그를 예방하고, 코드의 유지보수를 효과적으로 하기 위해 만들어졌다. 따라서 모든 TALOS 팀의 프로그래머들은 본 규칙을 숙지하고, 이를 따르며 코드를 작성해야한다.
 
-## Programming Guidelines
-이 가이드라인은 Robot Controller 개발시에 반드시 명심해야할 규칙들이다.     
+## Programming Guidelines / 개발 지침
+이 개발 지침은 Robot Controller 개발시에 반드시 명심해야할 규칙들이다.     
 
 [Programming Guidelines ➜](./rule/programming-guidelines)
 
-## TALOS Coding Style Guide
+## TALOS Coding Style Guide / TALOS 코딩 스타일 규정
 이 규칙은 TALOS 팀의 공통된 코딩 스타일을 규정한다. 이를 통해 코드 가독성을 향상시키고, 코드를 명확하게 하며, 예상치 못한 실수를 방지할 수 있다.     
 
-[TALOS Coding Style Guide ➜]()
+[TALOS Coding Style Guide ➜](./rule/TALOS-coding-style-guide)
+
+## Programming Guidelines During the Competition / 대회 시 특수 개발 지침
+이 개발 지침은 대회 당일날 프로그래머들이 반드시 지켜야 할 규칙들을 다룬다. 시간이 충분한 대회 준비 기간과 다르게 대회 당일에는 단순한 코드 수정으로도 경기 성적에 막대한 영향을 미칠 수 있다.
+
+[Programming Guidelines During the Competition ➜](./rule/programming-guidelines-during-the-competition)
 
 <br>
 
