@@ -13,7 +13,7 @@ Class 각각의 역할을 명확히 하고, 역할을 세분화하여, Class를 
 
 > e.g. Single Part Class → Part Main Class + Part Constants Class + Part Command Class + Part Adjustment Class
 
-*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2) - Part Class Structure*
+*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2/tree/main/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/part) - Part Class Structure*
 
 ### 1.2. 자주 사용되는 기능은 반드시 class로 객체화하여 제공한다.
 자주 사용되는 기능은 사용할 때 마다 굳이 새로 구현할 필요가 없다. 이렇게 하면 코드가 복잡해지고, 수정이 어려워지며, 버그에 취약한 코드가 만들어진다.
@@ -35,14 +35,17 @@ Child Class는 Parent Class의 함수를 Override 할 경우, 이를 Annotation�
 
 > e.g. Adjustment Parent Class를 제작하고, FTC Dashboard에서의 공통된 동작은 Parent Class에 구현하고, 각 동작에 따라 Part별로 제공되어야 하는 기능은 Abstract 함수로 Part의 Adjustment Class에서 직접 정의하도록 함
 
-*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2) - Part Class Structure & Adjustment Class Structure*
+*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2/tree/main/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/part) - Part Class Structure & Adjustment Class Structure*
 
 ### 1.4. 접근 제한자를 체계적으로 활용한다.
 JAVA는 Class의 멤버 함수와 멤버 변수의 외부 접근을 정교하게 조절할 수 있는 다양한 접근 제한자 (Access Modifier)를 가지고 있다.
 
 * __Private__ : 반드시 Class 내부에서만 사용되어야 하는 함수와 변수는 Private로 선언해야함. 부작용을 막기 위해 모든 변수는 Private로 선언하는 것을 권장하며, Getter와 Setter를 활용할 것을 권장함.
+
 * __Default__ : Class의 복잡성을 줄이기 위해 특정 Class를 여러 부분으로 나누어 하나의 Package 안에 모아둔 경우, 분리된 Class들 사이의 보다 더 유기적이고 직접적인 제어가 가능하도록 해야하는 경우가 있음. 이 경우에는 Private 대신에 Default로 선언하여 분리된 Class가 서로의 기능을 바로바로 활용할 수 있도록 해야함.
+
 * __Protected__ : 상속 관계로 이루어진 Class드의 경우, Child Class에서 Parent Class의 함수 혹은 변수를 직접적으로 활용해야하는 경우가 있음. 이 경우에는 Private 대신에 Protected로 선언하여 Child Class에 Parent Class의 기능을 바로바로 활용할 수 있도록 해야함.
+
 * __Public__ : 외부에서 호출되어야 하는 멤버 함수, 그리고 FTC Dashboard에서 값을 바로 수정할수 있도록 선언된 각종 상수들은 Public으로 선언되어야 함.
 
 접근 제한자를 사용할 떄에는 그 접근 제한자를 사용한 **합당한 이유**가 존재하야함. 단순히 편하게 코딩하기 위하여 모든 멤버 함수와 멤버 변수를 Public 등 불필요하게 외부에서 쉽게 접근할 수 있도록 한다면, 코드가 복잡해지고, 일관성이 없어지며,
@@ -51,10 +54,78 @@ JAVA는 Class의 멤버 함수와 멤버 변수의 외부 접근을 정교하게
 간단히 정리하면, Default는 패키지 내의 유기적 연결을 위해 접근 허용이 필요한 경우, Protected는 상속 관계에서 유기적 연결을 위해 접근 허용이 필요한 경우, Public은 외부에서 해당 Class를 사용하기 위해 선언된 멤버 함수에만 사용되어야 한다.
 
 ## 2. 하나의 파일에하는 하나의 Class만 작성한다.
+FTC Robot Controller에서는 Java를 기반으로 여러 하드웨어 구성 요소를 클래스로 분리해 작성한다. 이때 하나의 .java 파일에는 하나의 클래스만 정의하는 것이 권장된다.
+
+* __명확한 구조화__: FTC 프로젝트에서는 OpMode, MecanumDrive, Intake, Arm 등 기능별로 클래스를 나누어 구성하는 것이 일반적이다. 각 클래스를 별도의 파일로 관리하면 기능별 책임이 명확해지고, 구조를 파악하기 쉽다.
+  
+* __파일명과 클래스명의 일치__: Java에서는 public 클래스를 정의할 경우, 해당 클래스의 이름과 파일명이 반드시 같아야 한다. 이를 통해 코드 구조가 명확해지고, 클래스 위치를 쉽게 추적할 수 있다.
+
+* __가독성과 유지보수성 향상__: 각 클래스가 별도의 파일에 존재하면, 클래스의 책임과 역할이 명확히 분리되고 코드가 더 이해하기 쉬워진다.
+
+* __버전 관리 효율성__: 클래스별로 변경 사항을 관리할 수 있어 Git 등 버전 관리 시스템에서 충돌을 줄이고 추적이 용이하다.
+  
+*___OpMode 탐지 문제 방지__: 두 개 이상의 OpMode 클래스가 하나의 파일에 정의되어 있으면, FTC SDK가 해당 클래스를 제대로 인식하지 못할 수 있다. 이를 방지하기 위해서는 OpMode는 반드시 독립된 클래스/파일로 분리해야 한다.
+
+각 Class는 이미 충분히 복잡한 기능 구현을 포함하고 있다. 여러 개의 Class가 하나의 파일에 정의되어 있으면 가독성이 떨어지고, 유지보수와 코드 작성 측면에서 많은 불편함이 따를 수 있다.
+따라서 위와 같은 이유에 따라 TALOS 팀의 FTC Robot Controller 코드 작성 시에는 해당 규칙을 강제한다.
 
 ## 3. Subclass는 그 구조가 간단해야한다.
+Subclass란 Class 안에 Class를 정의하는 형태를 의미한다. 이러한 방식은 "2. 하나의 파일에는 하나의 Class만 작성한다."와 같은 이유로 권장되지 않는다.
+하지만, 벡터나 색상값 등 복잡한 구조의 다차원 데이터를 다루어야 하는 특수한 경우에는 이를 관리하기 위한 객체를 정의한다. 보통 이러한 Class 역시 독립적인 파일에 정의하는 것을 권장하지만,
+이러한 객체가 해당 Class 내부에서만 사용되거나, 해당 Class에만 관련된 데이터 형식일 경우에는 독립적인 파일에 정의하는 것은 오히려 가독성을 떨어트리고, 코드의 복잡성을 늘리는 행위일 수 있다.
+따라서 선술한 경우와 같이 해당 Class에만 지엽적으로 사용되는 특수한 경우에만 Subclass 제작이 허용된다.
 
-## 4. 함수는 하나의 기능만 수행해야하며, 내용이 간결해야한다.
+단, Subclass는 그 존재 자체만으로 "2. 하나의 파일에는 하나의 Class만 작성한다."를 위반하는 내용이며, 해당 Class 전체의 복잡성을 증가시키고, 유지보수를 어렵게 만들 수 있다.
+따라서 Subclass는 데이터 저장의 기능만 수행한다거나, 간단한 데이터 가공만을 하는 간결한 멤버 함수만 가지는 등 그 구조가 간단해야한다.
+
+*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2/blob/main/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/features/SmartGamepad.java) - Features / SmartGamepad*
+
+## 4. 함수는 하나의 기능만 수행해야하며, 내용이 명확해야한다.
+
+하나의 함수는 단일한 목적(Single Responsibility Principle) 을 가져야 하며, 그 기능이 명확히 정의되어 있어야 한다. 예를 들어, `moveToTarget()` 함수는 오직 로봇을 특정 위치로 이동시키는 역할만 수행해야 하며, 동시에 센서를 초기화하거나 경로를 기록하는 등의 복합적인 작업을 수행해서는 안 된다. 또한, 함수의 길이는 가능한 한 짧게 유지되어야 하며, 코드 흐름을 한눈에 파악할 수 있을 정도로 간결해야 한다.
+
+* **가독성 향상**: 함수가 간결하고 하나의 목적만을 수행하면, 다른 개발자가 코드를 빠르게 이해하고 유지보수하기 쉬워진다.
+  
+* **재사용성 증가**: 기능이 분리되어 있으면 필요한 기능만 독립적으로 재사용하거나 테스트할 수 있다.
+  
+* **디버깅 용이**: 문제가 생겼을 때, 어떤 함수에서 어떤 문제가 발생했는지를 명확하게 파악할 수 있다.
+  
+* **로봇 동작 안정성 확보**: FTC Robot Controller는 실시간으로 다양한 이벤트를 처리해야 하므로, 각 함수가 명확하고 간단해야 로봇의 예측 가능한 동작을 보장할 수 있다.
+
+```java
+// 규칙 위반 사례
+public void runAuto() {
+    resetIMU();
+    moveToPosition(30, 20);
+    if (detectSample()) {
+        pickUpSample();
+        logData();
+    }
+}
+
+// 규칙 준수 예시
+public void runAuto() {
+    initializeSensors();
+    navigateToSample();
+    handleSample();
+}
+
+private void initializeSensors() {
+    resetIMU();
+}
+
+private void navigateToSample() {
+    moveToPosition(30, 20);
+}
+
+private void handleSample() {
+    if (detectSample()) {
+        pickUpSample();
+    }
+}
+```
+
+이 규칙은 준수하고자 노력할 필요는 있지만, 상황에 따라 유연하게 활용할 필요가 있다. 이 규칙을 따르면 여러가지 이점이 있지만, 오히려 코드를 복잡하게 만들 수 도 있으며, 어떤 기능들은 부작용을 포함하므로써 더욱 고차원적이고 최적화된 움직임을 구현할 수 있기에, 어쩔 수 없이 이 규칙을 위반해야하는 경우도 존재한다. **이 규칙을 위반해야한다면, 프로그래머는 그 이유를 명확히 알고 행동해야하며, 이로 인해 만들어질 수 있는 버그에 각별히 신경 써야 한다. 또한, 각 함수의 역할을 정확히 파악하고 있어야 한다. 따라서 주석을 활용하여 각 함수의 부작용들을 서술해두면 도움이 될 수 있다.**
 
 ## 5. 상태를 저장하기 위해서는 상수 대신에 Enumeration을 활용한다.
 상태 저장은 매우 중요하다. 로봇의 현재 상태를 적절히 나누고, 각 상태를 적절히 표현할 수 있다면, 비정상적인 움직임을 시스템적으로 제한할 수 있고, 독립된 동작을 연결 동작으로 자동화하여 로봇 조작을 더욱 간단하게 만들 수 있다.
@@ -67,7 +138,7 @@ Enumeration은 자연어를 활용한 상태 정의를 가능하게 하며, 이�
 
 이를 예방하기 위하여 상태는 상태 기반 제어를 고려하여 최소한으로 나누어야한다.
 
-*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2) - Part States & TeleOpMode State Based Control*
+*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2/tree/main/TeamCode/src/main/java/org/firstinspires/ftc/teamcode) - Part States & TeleOpMode State Based Control*
 
 ## 6. Sleep은 절대 사용하지 않는다.
 Robot Controller를 만들다보면 특정 딜레이 이후 명령을 수행해야하는 경우가 있다. 일반적으로는 Sleep을 활용해서 딜레이를 넣지만, Robot Controller 개발을 할 때에는 절대 Sleep을 사용하면 안 된다.
@@ -86,12 +157,46 @@ Robot Controller를 만들다보면 특정 딜레이 이후 명령을 수행해�
 또한, 이 방법을 응용하면, 딜레이 뿐만 아니라, 특정 조건을 만족했을 때 코드가 실행되도록 할 수도 있다.
 이를 통해 딜레이 기반이 아니라, 동작 종료를 기반으로 한 실행을 통해 동작을 최적화할 수 있다.
 
-*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2) - Features / Schedule*
+*ref : [FTC 2024-2025 Robot Controller for APOC](https://github.com/TALOS-25309/FTC2024-2025_RobotController_V2/blob/main/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/features/Schedule.java) - Features / Schedule*
 
 ## 7. 수치들은 단위를 통일한다.
+로봇 제어 코드에서 사용하는 모든 수치는 일관된 단위 체계를 따라야 한다. Java 코드 내 상수, 함수 인자, 반환값 등 모든 수치 데이터는 같은 기준으로 처리되어야 하며, 단위 변환이 필요한 경우 반드시 명시적으로 변환을 수행해야 한다.
+
+예를 들어 거리를 나타내기 위해서 우리는 mm를 주로 사용하지만, 리니어 슬라이드를 활용한다면 엔코더 값이 길이에 해당한다. 또한, 각도 역시 우리는 도 단위가 다루기 편하지만, 삼각법 계산을 활용하기 위해서는 라디안을 쓰는 것이 유리하다.
+이렇게 다양한 단위를 사용하면 단위를 실수하여 값 처리를 잘못 수행하여 로봇의 움직임이 비정상적으로 동작할 수 있으며, 디버깅과 공동 개발의 난이도를 높이는 원인이 될 수 있다.
+
+따라서 Robot Controller 소스코드에서 다루는 다양한 값들은 단위를 통일해두는 것을 권장하며, 변수명 등을 활용해 그 단위를 명확히 표현하는 것을 권장한다. 또한, 변환 함수를 제작하여 단위 변환이 간단하게 이루어질 수 있도록 해야하며, 단위 변환은 해당 단위가 필요한 적절한 시점에만 이루어져야한다.
 
 ## 8. 수식은 코드로 바로 작성하지 않는다.
+수학적인 계산에 근거하여 로봇을 조작하면 훨씬 정교하고 체계적인 로봇 움직임을 구현할 수 있다. 하지만, 수식을 세울 때에는 계산 실수 등이 포함될 수 있으며, 잘못 작성된 수식을 디버깅 하는 것은 비교적 어렵기에 주의가 필요한다.
+
+특히, 머릿속으로 계산한 후, 이를 바로 코드로 옮기는 것은 매우 권장되지 않는다. 코드로 작성된 수식은 검산에 매우 불리하기 때문이다. 
+코드로 작성된 수식은 그 형태가 명확하지 않을 뿐더러, 제약 조건이 추가되거나, 여러 가지 단위가 섞여 쓰이는 순간 그 복잡성이 기하급수적으로 상승한다.
+따라서 수식을 세울 때에는 우선 수학적으로 수식을 기술해야하며, 그림 등을 활용하여 완전한 검산을 완료한 후, 문제가 없는 수식이 완성된 후에야 이를 코드로 옮겨야한다.
 
 ## 9. Telemetry를 활용한 값 출력은 코드 어디서든 가능해야한다.
+Robot Controller를 디버깅 하는 것은 다른 프로그램들에 비해 매우 어렵다.
+왜냐하면, 모든 버그는 로봇의 동작에 기반하여 찾아야하며, 그 버그의 원인은 복잡한 코드 구조와 다양한 환경적 요인이 복합적으로 작용하기에, 문제의 원인이 될 수 있는 요인들이 매우 다양하고, 원인이 매우 복잡할 수 있기 떄문이다.
+또한, 다른 프로그램과 다르게 디버깅 툴은 절대 사용할 수 없으며, 활용할 수 있는 것은 출력값과 로봇의 움직임 뿐이지만, 로봇의 움직임을 디버깅에 활용하는 것은 자칫 비정상적인 움직임으로 로봇이 손상될 수 있기에 매우 위험하다.
+따라서 우리가 활용할 수 있는 유일한 디버깅 도구는 Telemetry 출력값이다.
+
+버그가 발견되면, 우리는 Telemetry 출력을 기반으로 버그의 원인을 찾아야한다. 이것이 가장 빠르고 명확한 원인 파악 방법이다.
+출력을 통해 잘못된 부분의 위치와 값을 파악할 수 있다. 따라서 우리는 코드의 어디서는 Telemetry를 활용한 값 출력이 가능해야한다.
+
+이를 달성하기 위하여 보통 Telemetry를 Public Static Memory 영역에 저장하여, 어디서든 접근할 수 있도록 한다.
+
+디버깅을 하는 과정을 보통 아래와 같이 이루어진다.
+1. 로봇의 비정상적인 움직임으로부터 버그의 존재 확인
+2. 버그의 원인이 될 만한 요소 파악, 이 부분은 프로그래머의 능력에 달려있음
+3. 코드를 검토하며 버그 요인을 확인하고, 버그를 수정
+4. 디버깅 후 테스트
+5. 원인이 아닌 경우에는 다른 원인을 생각해보고, 코드를 검토하고, 버그를 수정
+6. 버그의 원인이 파익되지 않는 경우, 의심되는 값을 Telemetry를 통해 출력해보거나, 실행되는지 의심이 되는 부분에 Telemetry 출력을 넣어 실행 여부를 확인
+7. Telemetry 출력을 기반으로 로봇 움직임으로 드러나지 않는 비정상적인 코드 흐름을 명확히 파악하여 버그의 원인을 구체화
+8. 버그의 원인을 생각해보고, 코드를 검토하여 버그를 수정
+
+참고로 Telemetry는 Update 될 때, 과거에 출력된 내용이 삭제된다. 따라서 매 사이클마다 출력이 있는게 아니라면 Driver Hub 상에서는 Telemetry 출력이 표시되지 않을 수 있다.
+이 경우에는 FTC Dashboard를 사용하면 된다. FTC Dashboard는 Caption 기준으로 Caption이 같은 출력만 덮어쓰고, 그렇지 않은 출력은 이번 사이클에 출력되지 않더라도 이전 사이클에 출력됐으면 그 기록이 계속 남아있다.
+따라서 FTC Dashboard를 사용하면 출력이 됐는지 안 됐는지 좀 더 명확하게 파악할 수 있다.
 
 ## 10. Git & Github을 활용한 버전 관리를 체계적으로 수행한다.
