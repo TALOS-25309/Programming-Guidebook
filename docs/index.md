@@ -93,6 +93,8 @@ KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코
 
 ---
 
+# Dictionary
+
 이 문서는 Robot Controller를 제작할 때 나오는 각종 FTC 및 개발 용어를 설명한다.
 
 [Dictionary ➜]()
