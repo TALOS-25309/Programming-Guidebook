@@ -28,7 +28,7 @@ TALOS 팀의 프로그래머는 자신의 경험을 바탕으로 해당 레포�
 
 [TALOS Coding Style Guide ➜](./rule/TALOS-coding-style-guide)
 
-## Programming Guidelines During the Competition / 대회 시 특수 개발 지침
+## Programming Guidelines During the Competition / 대회 시 개발 지침
 이 개발 지침은 대회 당일날 프로그래머들이 반드시 지켜야 할 규칙들을 다룬다. 시간이 충분한 대회 준비 기간과 다르게 대회 당일에는 단순한 코드 수정으로도 경기 성적에 막대한 영향을 미칠 수 있다.
 
 [Programming Guidelines During the Competition ➜](./rule/programming-guidelines-during-the-competition)
