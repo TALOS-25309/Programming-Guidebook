@@ -105,4 +105,5 @@
 ## XI. 기본 규칙
 이 문서에서 서술하지 않은 부분 혹은 모호한 부분이 있는 경우
 Google 표준 Java 코딩 스타일을 참조한다.
+
 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
