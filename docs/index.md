@@ -1,6 +1,6 @@
 # Programming Guidebook
 
-프로그래밍 가이드북은 한국과학영재학교 로봇 공학 연구회 KORS와 한국 FTC 팀 TALOS의 Robot Controller 코드 작성을 효과적으로 수행하고,
+프로그래밍 가이드북은 한국과학영재학교 로봇 공학 연구회 KORS와 한국 FTC 팀 TALOS의 Robot Controller 코드를 효율적으로 작성하고,
 선배들의 경험으로부터 쌓아온 각종 프로그래밍 관련 경험을 후대에 전수하여,
 더욱 효율적인 코드 작성 및 대회 성적을 이끌어내고자 제작되었습니다.
 
@@ -73,6 +73,11 @@ KROS 연구회의 프로그래머로 선발된 모든 연구회원은 해당 코
 이 문서는 프로그래밍 시에 알면 유익한 각종 하드웨어의 특징과 사용 팁들을 다룬다.     
 
 [Hardware Tips ➜]()
+
+## PID Tips
+이 문서는 PID 사용 및 튜닝과 관련한 유용한 내용들을 다룬다.     
+
+[PID Tips ➜]()
 
 ## Roadrunner Tips
 이 문서는 Roadrunner를 사용하여 Localization과 Trajectory 제작, 그리고 Roadrunner Tuning시에 유용한 내용들을 다룬다.     
